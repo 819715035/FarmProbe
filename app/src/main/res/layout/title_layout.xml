@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/tvLeft1Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        tools:text="左1"
+        android:layout_marginRight="16dp"
+        android:textColor="@color/colorAccent" />
+    <TextView
+        android:id="@+id/tvLeft2Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvLeft1Title"
+        android:layout_centerVertical="true"
+        tools:text="左2"
+        android:textColor="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/tvMiddleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        tools:text="标题"
+        android:textColor="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/tvRight2Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:visibility="visible"
+        tools:text="右2"
+        android:textColor="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/tvRight1Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/tvRight2Title"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:visibility="visible"
+        tools:text="右1"
+        android:textColor="@color/colorAccent"/>
+
+</RelativeLayout>

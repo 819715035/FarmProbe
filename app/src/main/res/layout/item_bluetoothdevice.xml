@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/deviceName_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="设备名称"
+        android:layout_weight="1"
+        android:padding="5dp"/>
+    <TextView
+        android:id="@+id/deviceId_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="设备id"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:padding="5dp"/>
+    <TextView
+        android:id="@+id/deviceConnect_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="配对情况"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:padding="5dp"/>
+</LinearLayout>

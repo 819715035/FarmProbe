@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.lanjian.farm.activity.BluetoothSettingActivity">
+    <com.lanjian.farm.common.CustomTitleBar
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:leftImage1="@mipmap/ic_back"
+        app:rightTitle2="扫描"
+        app:middleTitle="蓝牙设置"
+        app:middleTextColor="@color/white"
+        app:rightTextColor2="@color/white"
+        >
+    </com.lanjian.farm.common.CustomTitleBar>
+    <ListView
+        android:id="@+id/bluetooth_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+</LinearLayout>

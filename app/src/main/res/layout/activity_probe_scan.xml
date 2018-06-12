@@ -4,4 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.lanjian.farm.activity.ProbeScanActivity">
+    <com.lanjian.farm.widget.scanView.UsImageView
+        android:id="@+id/scanView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

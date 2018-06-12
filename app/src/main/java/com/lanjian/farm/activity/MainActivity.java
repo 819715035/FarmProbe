@@ -9,7 +9,9 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.lanjian.farm.R;
 import com.lanjian.farm.common.BaseActivity;
+import com.lanjian.farm.common.Config;
 import com.lanjian.farm.common.CustomTitleBar;
+import com.lanjian.farm.util.LogUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -20,8 +22,10 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import leltek.viewer.model.Probe;
+import leltek.viewer.model.WifiProbe;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements Probe.SystemListener, Probe.InfoListener {
 
     @BindView(R.id.banner)
     Banner banner;
@@ -35,6 +39,7 @@ public class MainActivity extends BaseActivity {
     Button connectProbeBtn;
     @BindView(R.id.probe_setting_btn)
     Button probeSettingBtn;
+    private Probe probe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,11 +128,94 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.connect_probe_btn:
                 //连接探头
+                connectProbe();
                 break;
             case R.id.probe_setting_btn:
                 //探头设置
                 break;
         }
+    }
+
+    private void connectProbe() {
+        String cfgRoot = "cfg";
+        probe = WifiProbe.init(cfgRoot, this);
+        probe.setSystemListener(this);
+        probe.setInfoListener(this);
+        if (probe.isConnected()) {
+            LogUtils.e("isConnected");
+            return;
+        }
+        if (!probe.isRequesting()) {
+            LogUtils.e("!probe.isRequesting()");
+            //初始化
+            probe.initialize();
+        }
+    }
+
+    @Override
+    public void onInitializing(Integer percentage) {
+        LogUtils.e("onInitializing:"+percentage);
+    }
+
+    @Override
+    public void onInitialized() {
+        Config.probe = probe;
+        openActivity(ProbeScanActivity.class);
+    }
+
+    @Override
+    public void onInitializationError(String message) {
+
+    }
+
+    @Override
+    public void onInitializingLowVoltageError(String message) {
+
+    }
+
+    @Override
+    public void onInitializingHiTemperatureError(String message) {
+
+    }
+
+    @Override
+    public void onSystemError(String message) {
+
+    }
+
+    @Override
+    public void onBatteryLevelChanged(int newBatteryLevel) {
+
+    }
+
+    @Override
+    public void onBatteryLevelTooLow(int BatteryLevel) {
+
+    }
+
+    @Override
+    public void onTemperatureChanged(int newTemperature) {
+
+    }
+
+    @Override
+    public void onTemperatureOverHeated(int temperature) {
+
+    }
+
+    @Override
+    public void onButtonPressed(int button) {
+
+    }
+
+    @Override
+    public void onButtonReleased(int button) {
+
+    }
+
+    @Override
+    public void onGSensorReceive(int gSensor) {
+
     }
 
     //自动轮播图

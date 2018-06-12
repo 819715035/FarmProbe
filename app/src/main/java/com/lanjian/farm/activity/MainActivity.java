@@ -147,7 +147,7 @@ public class MainActivity extends BaseActivity implements Probe.SystemListener, 
         }
         if (!probe.isRequesting()) {
             LogUtils.e("!probe.isRequesting()");
-            //初始化探头
+            //初始化
             probe.initialize();
         }
     }
